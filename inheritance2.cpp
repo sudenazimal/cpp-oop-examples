@@ -37,15 +37,24 @@ public:
         return (width*height)/2;
     }
 };
-int main (){
-    polygon p1(6,7);
-    p1.setValues(3,4);
 
-    rectangle r(5,10);
+int main (){
+
+    rectangle r1(5,10);
     triangle t1(5,10);
 
-    std::cout<< r.calculateArae()<<std::endl;
-    std::cout<< t1.calculateArea()<<std::endl;
+// some additions for explaining pointer to base class
+    polygon *pPtr1= &r1;
+    polygon *pPtr2=&t1;
+
+
+    std::cout<< "Rectangle 1's area is: "<<r1.calculateArae()<<std::endl;
+    std::cout<<"Triangle 1's area is : "<<t1.calculateArea()<<std::endl;
+
+// some additions for explaining pointer to base class 
+    pPtr1->setValues(8,10);
+    std::cout<< "Rectangle 1's area is: "<<r1.calculateArae()<<std::endl;
+
 
     return 0;
 }
